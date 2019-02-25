@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1"/>
+    <title>Drop down Properties Example</title>
+    <link media="screen,projection" rel="stylesheet" th:href="@{/main-style.css}" type="text/css"/>
+</head>
+<body>
+<h1>Drop down Properties Example</h1>
+<form method="post" th:action="@{/save}" th:object="${user}">
+    <div>
+        <label for="userName">User Name</label>
+        <input id="userName" th:field="*{userName}" type="text"/>
+    </div>
+    <div>
+        <label for="fullName">Full Name</label>
+        <input id="fullName" th:field="*{fullName}" type="text"/>
+    </div>
+    <div>
+        <label for="userRole">Role</label>
+        <select id="userRole" th:field="*{userRole}">
+            <option selected="selected" value="">N/A</option>
+            <option th:each="roleOpt : ${userRoleOptions.entrySet()}"
+                    th:text="${roleOpt.value}"
+                    th:value="${roleOpt.key}"></option>
+        </select>
+    </div>
+    <div><label>Status</label></div>
+    <div>
+        <ul>
+            <li th:each="statusOpt : ${statusOptions.entrySet()}">
+                <input th:field="*{status}" th:value="${statusOpt.key}" type="radio"/>
+                <label th:for="${#ids.prev('status')}" th:text="${statusOpt.value}">Status</label>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <button name="save" type="submit">Save</button>
+    </div>
+</form>
+</body>
+</html>
