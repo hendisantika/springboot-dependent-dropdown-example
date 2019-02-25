@@ -3,6 +3,8 @@ package com.hendisantika.springbootdependentdropdownexample.controller;
 import com.hendisantika.springbootdependentdropdownexample.config.DropdownItemProperties;
 import com.hendisantika.springbootdependentdropdownexample.config.RadioButtonProperties;
 import com.hendisantika.springbootdependentdropdownexample.entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,9 @@ import java.util.Map;
  */
 @Controller
 public class UserController {
+
+    private static Logger logger = LogManager.getLogger(UserController.class);
+
     @Autowired
     private DropdownItemProperties dropdownItemProperties;
 
@@ -33,14 +38,14 @@ public class UserController {
 
     @RequestMapping("/")
     public String displayExample(User user, Model model) {
-
-        return "example";
+        model.addAttribute("user", new User());
+        return "index";
     }
 
     @RequestMapping(value = "/save", params = {"save"}, method = RequestMethod.POST)
     public String saveUser(@Valid User user, BindingResult bindingResult,
                            Model model) {
-        System.out.println(user.toString());
+        logger.info(user.toString());
         return "redirect:/";
     }
 
