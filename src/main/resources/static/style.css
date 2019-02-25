@@ -1,0 +1,30 @@
+@charset "ISO-8859-1";
+body {
+    font-family: verdana, sans-serif;
+}
+
+h1 {
+    margin-left: 7em;
+    color: MidnightBlue;
+}
+
+td {
+    padding: 1em;
+}
+
+th {
+    border-bottom-style: solid;
+}
+
+label {
+    font-weight: 500;
+    padding-right: .5em;
+}
+
+div {
+    margin-left: 4em;
+}
+
+select {
+    margin-left: 4em;
+}
