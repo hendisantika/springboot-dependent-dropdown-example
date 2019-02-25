@@ -1,5 +1,6 @@
 package com.hendisantika.springbootdependentdropdownexample.config;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
@@ -16,6 +17,7 @@ import java.util.SortedMap;
  */
 @Configuration
 @PropertySource("classpath:dropdownValues.properties")
+@ConfigurationProperties(prefix = "radio-value")
 public class RadioButtonProperties {
     private SortedMap<String, String> statusOptions;
 
