@@ -10,3 +10,9 @@ mvn clean spring-boot:run
 ```
 
 Open your favourite browser : http://localhost:8080
+
+### Screen shot
+
+Index page
+
+![Index Page](img/index.png "Index Page")
