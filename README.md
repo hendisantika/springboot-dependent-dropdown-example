@@ -15,4 +15,4 @@ Open your favourite browser : http://localhost:8080
 
 Index page
 
-![Index Page](img/index.png "Index Page")
+![Index Page](img/index2.png "Index Page")
